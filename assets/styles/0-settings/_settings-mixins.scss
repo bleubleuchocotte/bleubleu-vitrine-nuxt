@@ -13,7 +13,7 @@ FONT
   $tablet-target: 1024;
   $dekstop-target: 1440;
 
-  @if ($font == "p") {
+  @if ($font == "text/p") {
     $base-fs: 14;
 
     @media #{$mobile-xs} {
@@ -29,7 +29,7 @@ FONT
       font-size: pxToVw($base-fs, $dekstop-target);
     }
   }
-  @else if ($font == "h1") {
+  @else if ($font == "title/h1") {
     $base-fs: 28;
 
     @media #{$mobile-xs} {
@@ -45,7 +45,7 @@ FONT
       font-size: pxToVw($base-fs, $dekstop-target);
     }
   }
-  @else if ($font == "h2") {
+  @else if ($font == "title/h2") {
     $base-fs: 22;
 
     @media #{$mobile-xs} {
@@ -61,7 +61,7 @@ FONT
       font-size: pxToVw($base-fs, $dekstop-target);
     }
   }
-  @else if ($font == "h3") {
+  @else if ($font == "title/h3") {
     $base-fs: 20;
 
     @media #{$mobile-xs} {
@@ -77,78 +77,12 @@ FONT
       font-size: pxToVw($base-fs, $dekstop-target);
     }
   }
-  @else if ($font == "h4") {
+  @else if ($font == "title/h4") {
     $base-fs: 20;
     font-weight: 500;
 
     @media #{$mobile-xs} {
       font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
-    }
-  }
-  @else if ($font == "cta") {
-    $base-fs: 12;
-
-    @media #{$mobile-xs} {
-      font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
-    }
-  }
-  @else if ($font == "small") {
-    $base-fs: 12;
-    font-weight: 482;
-
-    @media #{$mobile-xs} {
-      font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
-    }
-  }
-  @else if ($font == "big") {
-    $base-fs: 40;
-
-    @media #{$mobile-xs} {
-      font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
-    }
-  }
-  @else if ($font == "enormous") {
-    $base-fs: 200;
-    font-weight: 200;
-
-    @media #{$mobile-xs} {
-      font-size: pxToVw(100, $mobile-xs-target);
     }
     @media #{$mobile} {
       font-size: pxToVw($base-fs, $mobile-target);
