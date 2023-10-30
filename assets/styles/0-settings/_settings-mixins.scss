@@ -28,7 +28,8 @@ FONT
     @media #{$desktop} {
       font-size: pxToVw($base-fs, $dekstop-target);
     }
-  } @else if ($font == "h1") {
+  }
+  @else if ($font == "h1") {
     $base-fs: 28;
 
     @media #{$mobile-xs} {
@@ -43,7 +44,8 @@ FONT
     @media #{$desktop} {
       font-size: pxToVw($base-fs, $dekstop-target);
     }
-  } @else if ($font == "h2") {
+  }
+  @else if ($font == "h2") {
     $base-fs: 22;
 
     @media #{$mobile-xs} {
@@ -58,7 +60,8 @@ FONT
     @media #{$desktop} {
       font-size: pxToVw($base-fs, $dekstop-target);
     }
-  } @else if ($font == "h3") {
+  }
+  @else if ($font == "h3") {
     $base-fs: 20;
 
     @media #{$mobile-xs} {
@@ -73,7 +76,8 @@ FONT
     @media #{$desktop} {
       font-size: pxToVw($base-fs, $dekstop-target);
     }
-  } @else if ($font == "h4") {
+  }
+  @else if ($font == "h4") {
     $base-fs: 20;
     font-weight: 500;
 
@@ -89,7 +93,8 @@ FONT
     @media #{$desktop} {
       font-size: pxToVw($base-fs, $dekstop-target);
     }
-  } @else if ($font == "cta") {
+  }
+  @else if ($font == "cta") {
     $base-fs: 12;
 
     @media #{$mobile-xs} {
@@ -104,7 +109,8 @@ FONT
     @media #{$desktop} {
       font-size: pxToVw($base-fs, $dekstop-target);
     }
-  } @else if ($font == "small") {
+  }
+  @else if ($font == "small") {
     $base-fs: 12;
     font-weight: 482;
 
@@ -120,7 +126,8 @@ FONT
     @media #{$desktop} {
       font-size: pxToVw($base-fs, $dekstop-target);
     }
-  } @else if ($font == "big") {
+  }
+  @else if ($font == "big") {
     $base-fs: 40;
 
     @media #{$mobile-xs} {
@@ -135,7 +142,8 @@ FONT
     @media #{$desktop} {
       font-size: pxToVw($base-fs, $dekstop-target);
     }
-  } @else if ($font == "enormous") {
+  }
+  @else if ($font == "enormous") {
     $base-fs: 200;
     font-weight: 200;
 
