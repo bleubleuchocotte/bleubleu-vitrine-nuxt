@@ -1,15 +1,15 @@
-h1 {
-  @include font("h1");
+h1, .h1 {
+  @include font("title/h1");
 }
-h2 {
-  @include font("h2");
+h2, .h2 {
+  @include font("title/h2");
 }
-h3 {
-  @include font("h3");
+h3, .h3 {
+  @include font("title/h3");
 }
-h4 {
-  @include font("h4");
+h4, .h4 {
+  @include font("title/h4");
 }
-p {
-  @include font("p");
+p, .p {
+  @include font("text/p");
 }
