@@ -1,5 +1,5 @@
 $mobile-xs: "screen and (max-width: 480px)"; // Pour tous les petits écrans
-$mobile: "screen and (max-width: 768px)"; // Pour tous les écrans qui ne sont pas des tablettes / ordinateurs
+$mobile: "screen and (min-width: 481px) and (max-width: 768px)"; // Pour tous les écrans qui ne sont pas des tablettes / ordinateurs
 
 $tablet: "screen and (min-width: 769px) and (max-width: 1024px)"; // Pour tous les écrans qui sont des tablettes
 
