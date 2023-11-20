@@ -11,7 +11,7 @@ useSeoMeta({
 	ogDescription: "La description du site.",
 
 	ogImage: `${request.origin}/images/og-image.png`,
-	ogUrl: request.origin,
+	ogUrl: request.origin + request.pathname,
 
 	twitterCard: "summary_large_image",
 });
