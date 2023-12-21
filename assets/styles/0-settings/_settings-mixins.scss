@@ -98,54 +98,29 @@ CUSTOM PROPERTY
 BORDER
 -----------------------------------------------------
 */
-$base-border-radius: 20px;
-@mixin border-radius($coef: 1, $side: "all") {
-  @if $side == "all" {
-    @media #{$mobile-xs} {
-      border-radius: $base-border-radius * 0.5 * $coef;
-    }
-    @media #{$mobile} {
-      border-radius: $base-border-radius * 0.5 * $coef;
-    }
-    @media #{$tablet} {
-      border-radius: $base-border-radius * 0.75 * $coef;
-    }
-    @media #{$desktop} {
-      border-radius: $base-border-radius * $coef;
-    }
-  } @else if $side == "top" {
-    @media #{$mobile-xs} {
-      border-radius: ($base-border-radius * 0.5 * $coef)
-        ($base-border-radius * $coef * 0.5) 0 0;
-    }
-    @media #{$mobile} {
-      border-radius: ($base-border-radius * 0.5 * $coef)
-        ($base-border-radius * 0.5 * $coef) 0 0;
-    }
-    @media #{$tablet} {
-      border-radius: ($base-border-radius * 0.75 * $coef)
-        ($base-border-radius * 0.75 * $coef) 0 0;
-    }
-    @media #{$desktop} {
-      border-radius: ($base-border-radius * $coef) ($base-border-radius * $coef)
-        0 0;
-    }
-  } @else if $side == "bottom" {
-    @media #{$mobile-xs} {
-      border-radius: 0 0 ($base-border-radius * $coef * 0.5)
-        ($base-border-radius * $coef * 0.5);
-    }
-    @media #{$mobile} {
-      border-radius: 0 0 ($base-border-radius * $coef * 0.5)
-        ($base-border-radius * $coef * 0.5);
-    }
-    @media #{$tablet} {
-      border-radius: 0 0 ($base-border-radius * $coef * 0.75)
-        ($base-border-radius * $coef * 0.75);
-    }
-    @media #{$desktop} {
-      border-radius: 0 0 ($base-border-radius * $coef)
-        ($base-border-radius * $coef);
+@mixin border-radius($coef: 1, $side: "all", $base-radius: (16, 32, 64, 128) /* mobile-xs, mobile, tablet, desktop */) {
+  @each $index, $size in $sizes {
+    @media #{map.get($size, "media")} {
+      $radius: list.nth($base-radius, $index) * $coef;
+      @if $side == "all" {
+        border-radius: #{$radius}px;
+      }
+      @else if $side == "right" {
+        border-top-right-radius: #{$radius}px;
+        border-bottom-right-radius: #{$radius}px;
+      }
+      @else if $side == "left" {
+        border-top-left-radius: #{$radius}px;
+        border-bottom-left-radius: #{$radius}px;
+      }
+      @else if $side == "bottom" {
+        border-bottom-right-radius: #{$radius}px;
+        border-bottom-left-radius: #{$radius}px;
+      }
+      @else if $side == "top" {
+        border-top-right-radius: #{$radius}px;
+        border-top-left-radius: #{$radius}px;
+      }
     }
   }
 }
