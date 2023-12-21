@@ -3,11 +3,11 @@
 FONT
 -----------------------------------------------------
 */
-@function pxToVw($size: 1, $breakpoint: 1440) {
+@function pxToVw($size, $breakpoint) {
   @return calc($size/$breakpoint) * 100vw;
 }
 
-@mixin font($font: "p") {
+@mixin font($font) {
   $mobile-xs-target: 390;
   $mobile-target: 768;
   $tablet-target: 1024;
