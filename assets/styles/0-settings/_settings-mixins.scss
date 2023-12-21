@@ -6,12 +6,11 @@
 FONT
 -----------------------------------------------------
 */
-@function pxToVw($size, $breakpoint) {
-  @return max(#{$size*0.8}px, ($size / $breakpoint) * 100vw);
+@function pxToVw($size, $breakpoint, $coef: 0.8) {
+  @return max(#{$size*$coef}px, ($size / $breakpoint) * 100vw);
 }
 
 @mixin font($font) {
-
   @if ($font == "text/p") {
     // mobile-xs, mobile, tablet, desktop
     $base-fs: 18, 18, 18, 18;
@@ -79,19 +78,11 @@ FONT
 CUSTOM PROPERTY
 -----------------------------------------------------
 */
-$base-length: 20px;
-@mixin prop($property, $coef: 1, $important: null) {
-  @media #{$mobile-xs} {
-    #{$property}: $base-length * 0.25 * $coef $important;
-  }
-  @media #{$mobile} {
-    #{$property}: $base-length * 0.5 * $coef $important;
-  }
-  @media #{$tablet} {
-    #{$property}: $base-length * 0.75 * $coef $important;
-  }
-  @media #{$desktop} {
-    #{$property}: $base-length * $coef $important;
+@mixin prop($property, $coef: 1, $important: null, $base-length: (16, 32, 64, 128) /* mobile-xs, mobile, tablet, desktop */) {
+  @each $index, $size in $sizes {
+    @media #{map.get($size, "media")} {
+      #{$property}: pxToVw(list.nth($base-length, $index) * $coef, map.get($size, "target"), 0.5) $important;
+    }
   }
 }
 
