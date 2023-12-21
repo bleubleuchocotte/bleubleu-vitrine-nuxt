@@ -1,34 +1,26 @@
+@use "sass:map";
+
 /**
 -----------------------------------------------------
 FONT
 -----------------------------------------------------
 */
 @function pxToVw($size, $breakpoint) {
-  @return calc($size/$breakpoint) * 100vw;
+  @return max(#{$size*0.8}px, ($size / $breakpoint) * 100vw);
 }
 
 @mixin font($font) {
-  $mobile-xs-target: 390;
-  $mobile-target: 768;
-  $tablet-target: 1024;
-  $dekstop-target: 1440;
+
 
   @if ($font == "text/p") {
     $base-fs: 14;
     line-height: normal;
     font-weight: normal;
 
-    @media #{$mobile-xs} {
-      font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
+    @each $index, $size in $sizes {
+      @media #{map.get($size, "media")} {
+        font-size: pxToVw($base-fs, map.get($size, "target"));
+      }
     }
   }
   @else if ($font == "title/h1") {
@@ -36,17 +28,10 @@ FONT
     line-height: normal;
     font-weight: normal;
 
-    @media #{$mobile-xs} {
-      font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
+    @each $index, $size in $sizes {
+      @media #{map.get($size, "media")} {
+        font-size: pxToVw($base-fs, map.get($size, "target"));
+      }
     }
   }
   @else if ($font == "title/h2") {
@@ -54,17 +39,10 @@ FONT
     line-height: normal;
     font-weight: normal;
 
-    @media #{$mobile-xs} {
-      font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
+    @each $index, $size in $sizes {
+      @media #{map.get($size, "media")} {
+        font-size: pxToVw($base-fs, map.get($size, "target"));
+      }
     }
   }
   @else if ($font == "title/h3") {
@@ -72,17 +50,10 @@ FONT
     line-height: normal;
     font-weight: normal;
 
-    @media #{$mobile-xs} {
-      font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
+    @each $index, $size in $sizes {
+      @media #{map.get($size, "media")} {
+        font-size: pxToVw($base-fs, map.get($size, "target"));
+      }
     }
   }
   @else if ($font == "title/h4") {
@@ -90,17 +61,10 @@ FONT
     line-height: normal;
     font-weight: normal;
 
-    @media #{$mobile-xs} {
-      font-size: pxToVw($base-fs, $mobile-xs-target);
-    }
-    @media #{$mobile} {
-      font-size: pxToVw($base-fs, $mobile-target);
-    }
-    @media #{$tablet} {
-      font-size: pxToVw($base-fs, $tablet-target);
-    }
-    @media #{$desktop} {
-      font-size: pxToVw($base-fs, $dekstop-target);
+    @each $index, $size in $sizes {
+      @media #{map.get($size, "media")} {
+        font-size: pxToVw($base-fs, map.get($size, "target"));
+      }
     }
   }
 }
