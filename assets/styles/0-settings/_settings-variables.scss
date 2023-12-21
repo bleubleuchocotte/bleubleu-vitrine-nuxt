@@ -1,8 +1,8 @@
-$mobile-xs: "screen and (max-width: 480px)"; // Pour tous les petits écrans
-$mobile: "screen and (min-width: 481px) and (max-width: 768px)"; // Pour tous les écrans qui ne sont pas des tablettes / ordinateurs
+$mobile-xs: "screen and (max-width: 389px)"; // Pour tous les petits écrans
+$mobile: "screen and (min-width: 490px) and (max-width: 768px)"; // Pour tous les écrans qui ne sont pas des tablettes / ordinateurs
 
-$tablet: "screen and (min-width: 769px) and (max-width: 1024px)"; // Pour tous les écrans qui sont des tablettes
+$tablet: "screen and (min-width: 769px) and (max-width: 1023px)"; // Pour tous les écrans qui sont des tablettes
 
 $desktop: "screen and (min-width: 1024px)"; // Pour tous les écrans qui ne sont pas des mobiles / tablettes
 
-$desktop-down: "screen and (max-width: 1025px)"; // Pour tous les écrans qui ne sont pas des ordinateurs
+$desktop-down: "screen and (max-width: 1023px)"; // Pour tous les écrans qui ne sont pas des ordinateurs
