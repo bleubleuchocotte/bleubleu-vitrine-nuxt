@@ -7,7 +7,9 @@
 		"dev": "nuxt dev",
 		"generate": "nuxt generate",
 		"preview": "nuxt preview",
-		"postinstall": "nuxt prepare"
+		"postinstall": "nuxt prepare",
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
 		"@pinia/nuxt": "^0.5.1",
@@ -15,7 +17,7 @@
 		"sass": "^1.69.5"
 	},
 	"devDependencies": {
-		"@antfu/eslint-config": "1.0.0-beta.27",
+		"@antfu/eslint-config": "2.4.6",
 		"@nuxt/devtools": "latest",
 		"@vueuse/core": "^10.6.1",
 		"@vueuse/nuxt": "^10.6.1",
