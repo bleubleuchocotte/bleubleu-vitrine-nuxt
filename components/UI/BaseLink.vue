@@ -1,0 +1,29 @@
+<script setup lang="ts">
+import type { NuxtLinkProps } from "#app";
+
+const props = defineProps<NuxtLinkProps>();
+</script>
+
+<template>
+	<NuxtLink v-bind="props" class="link">
+		<slot />
+	</NuxtLink>
+</template>
+
+<style scoped lang="scss">
+.link {
+	&:visited {
+		color: unset;
+	}
+	// focus-visible let the UA determines when it need to apply focus style
+	&:focus,
+	&:focus-within,
+	&:focus-visible {
+		outline: 1px solid currentColor;
+	}
+
+	&:any-link {
+		text-decoration: unset;
+	}
+}
+</style>
