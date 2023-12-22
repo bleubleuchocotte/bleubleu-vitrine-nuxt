@@ -1,11 +1,7 @@
 @use "sass:map";
 @use 'sass:list';
 
-/**
------------------------------------------------------
-FONT
------------------------------------------------------
-*/
+// FONT
 @function pxToVw($size, $breakpoint, $coef: 0.8) {
   @return max(#{$size*$coef}px, ($size / $breakpoint) * 100vw);
 }
@@ -73,11 +69,7 @@ FONT
   }
 }
 
-/**
------------------------------------------------------
-CUSTOM PROPERTY
------------------------------------------------------
-*/
+//CUSTOM PROPERTY
 @mixin prop($property, $coef: 1, $important: null, $base-length: (16, 32, 64, 128) /* mobile-xs, mobile, tablet, desktop */) {
   @each $index, $size in $sizes {
     @media #{map.get($size, "media")} {
@@ -93,11 +85,7 @@ CUSTOM PROPERTY
   @include prop("gap", $coef, $important);
 }
 
-/**
------------------------------------------------------
-BORDER
------------------------------------------------------
-*/
+// BORDER
 @mixin border-radius($coef: 1, $side: "all", $base-radius: (16, 32, 64, 128) /* mobile-xs, mobile, tablet, desktop */) {
   @each $index, $size in $sizes {
     @media #{map.get($size, "media")} {
@@ -133,11 +121,7 @@ BORDER
   @include border-radius($coef);
 }
 
-/**
------------------------------------------------------
-POSITIONING
------------------------------------------------------
-*/
+// POSITIONING
 @mixin inset($arg: 0) {
   top: $arg;
   bottom: $arg;
@@ -149,11 +133,7 @@ POSITIONING
   }
 }
 
-/**
------------------------------------------------------
-WRAPPER
------------------------------------------------------
-*/
+// WRAPPER
 $base-wrapper: 1440px;
 @mixin wrapper($wrapper: $base-wrapper) {
   margin: 0 auto;
@@ -162,11 +142,7 @@ $base-wrapper: 1440px;
   @include prop("padding-inline", 1.5);
 }
 
-/**
------------------------------------------------------
-TRANSITION
------------------------------------------------------
-*/
+// TRANSITION
 @mixin transition($property, $duration: 0.2s, $v: ease-out) {
   transition-property: #{$property};
   transition-duration: $duration;
