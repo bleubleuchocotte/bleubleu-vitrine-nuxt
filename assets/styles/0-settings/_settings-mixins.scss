@@ -143,8 +143,39 @@
 }
 
 // TRANSITION
-@mixin transition($property, $duration: 0.2s, $v: ease-out) {
-  transition-property: #{$property};
-  transition-duration: $duration;
-  transition-timing-function: $v;
+@mixin transition($properties: (all), $durations: (), $easings: (), $delays: ()) {
+  $default-duration: 0.3s;
+  $default-ease: ease-out;
+  $default-delay: null;
+
+  $transitions: ();
+
+  @for $i from 1 through length($properties) {
+    $transition: nth($properties, $i);
+
+    @if (length($durations) >= $i) {
+      $transition: append($transition, nth($durations, $i));
+    }
+    @else {
+      $transition: append($transition, $default-duration);
+    }
+
+    @if (length($easings) >= $i) {
+      $transition: append($transition, nth($easings, $i));
+    }
+    @else {
+      $transition: append($transition, $default-ease);
+    }
+
+    @if (length($delays) >= $i) {
+      $transition: append($transition, nth($delays, $i));
+    }
+    @else {
+      $transition: append($transition, $default-delay);
+    }
+
+    $transitions: append($transitions, $transition, $separator: comma);
+  }
+
+  transition: $transitions;
 }
