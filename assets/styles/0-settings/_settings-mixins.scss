@@ -134,12 +134,12 @@
 }
 
 // WRAPPER
-$base-wrapper: 1440px;
-@mixin wrapper($wrapper: $base-wrapper) {
+@mixin wrapper($wrapper: 1440px, $coef: 1) {
   margin: 0 auto;
   max-width: $wrapper;
   width: 100%;
-  @include prop("padding-inline", 1.5);
+
+  @include prop("padding-inline", $coef);
 }
 
 // TRANSITION
