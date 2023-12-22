@@ -40,7 +40,8 @@ withDefaults(defineProps<ButtonHTMLAttributes>(), {
 
 		// focus-visible let the UA determines when it need to apply focus style
 		&:focus,
-		&:focus-within {
+		&:focus-within,
+		&:focus-visible {
 			outline: 1px solid currentColor;
 		}
 	}
