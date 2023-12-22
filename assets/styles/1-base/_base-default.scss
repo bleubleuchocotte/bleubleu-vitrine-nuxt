@@ -18,3 +18,8 @@ p,
 .p {
 	@include font("text/p");
 }
+
+button,
+select {
+	color: currentColor; // Reset blue color from -apple-system-blue ios 15
+}
