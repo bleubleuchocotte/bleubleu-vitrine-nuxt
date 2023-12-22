@@ -51,7 +51,7 @@ useHead({
 	height: 100vh;
 	width: 100vw;
 
-	color: #FFFFFF;
+	color: #ffffff;
 	background-color: #000000;
 }
 </style>
