@@ -9,10 +9,22 @@ $tablet-target: 1023;
 $desktop-target: 1440;
 
 $sizes: (
-	1: ("media": $mobile-xs, "target": $mobile-xs-target),
-	2: ("media": $mobile, "target": $mobile-target),
-	3: ("media": $tablet, "target": $tablet-target),
-	4: ("media": $desktop, "target": $desktop-target),
+	1: (
+		"media": $mobile-xs,
+		"target": $mobile-xs-target,
+	),
+	2: (
+		"media": $mobile,
+		"target": $mobile-target,
+	),
+	3: (
+		"media": $tablet,
+		"target": $tablet-target,
+	),
+	4: (
+		"media": $desktop,
+		"target": $desktop-target,
+	),
 ); // Utiliser pour calculer les fonts dans _settings-mixins.scss;
 
 $desktop-down: "screen and (max-width: 1024px)"; // Pour tous les écrans qui ne sont pas des ordinateurs
