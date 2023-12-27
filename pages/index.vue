@@ -1,3 +1,9 @@
+<script setup lang="ts">
+useSeoMeta({
+	title: "Accueil",
+});
+</script>
+
 <template>
 	<div class="starter">
 		<h1>Heading 1</h1>
