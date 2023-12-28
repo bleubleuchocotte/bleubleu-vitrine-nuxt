@@ -12,7 +12,7 @@
 		"postinstall": "nuxt prepare",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix",
-		"typecheck": "tsc --noEmit"
+		"typecheck": "npx -p vue-tsc -p typescript vue-tsc --noEmit"
 	},
 	"dependencies": {
 		"@pinia/nuxt": "^0.5.1",
