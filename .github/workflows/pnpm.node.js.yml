@@ -1,6 +1,8 @@
-name: pnpm Example Workflow
+name: Node.js CI | pnpm
 on:
   push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-20.04
@@ -19,3 +21,7 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies
       run: pnpm install
+    - name: Build and Test
+      run: |
+        pnpm build
+        pnpm nuxi typecheck
