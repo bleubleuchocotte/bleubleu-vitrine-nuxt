@@ -2,8 +2,8 @@
 	"name": "nuxt-app",
 	"type": "module",
 	"private": true,
-	"description": "BleuBleu Chocotte's Nuxt 3 boilerplate",
 	"packageManager": "pnpm@8.13.1",
+	"description": "BleuBleu Chocotte's Nuxt 3 boilerplate",
 	"scripts": {
 		"build": "nuxt build",
 		"dev": "nuxt dev",
@@ -11,7 +11,8 @@
 		"preview": "nuxt preview",
 		"postinstall": "nuxt prepare",
 		"lint": "eslint .",
-		"lint:fix": "eslint . --fix"
+		"lint:fix": "eslint . --fix",
+		"typecheck": "tsc --noEmit"
 	},
 	"dependencies": {
 		"@pinia/nuxt": "^0.5.1",
