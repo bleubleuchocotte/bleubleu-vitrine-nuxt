@@ -21,7 +21,9 @@ jobs:
         cache: 'pnpm'
     - name: Install dependencies
       run: pnpm install
-    - name: Build and Test
-      run: |
-        pnpm build
-        pnpm nuxi typecheck
+    - name: Building 
+      run: pnpm build
+    - name: Testing
+      run: pnpm nuxi typecheck
+
+        
