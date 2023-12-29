@@ -5,7 +5,7 @@ useSeoMeta({
 </script>
 
 <template>
-	<div>
+	<main>
 		page des mentions légales
-	</div>
+	</main>
 </template>
