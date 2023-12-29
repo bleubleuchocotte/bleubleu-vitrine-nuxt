@@ -17,7 +17,7 @@ useServerSeoMeta({
 </script>
 
 <template>
-	<div>
+	<main>
 		<The404Error :url="$route.path" />
-	</div>
+	</main>
 </template>
