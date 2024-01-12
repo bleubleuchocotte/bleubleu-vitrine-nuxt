@@ -8,6 +8,7 @@ export default defineNuxtConfig({
 	 "nuxt-simple-robots",
 	 "@nuxt/test-utils/module",
 	 "@nuxtjs/prismic",
+	 "@pinia/nuxt",
 	],
 
 	css: ["@/assets/styles/reset.css", "@/assets/styles/1-base/_base-default.scss"],
