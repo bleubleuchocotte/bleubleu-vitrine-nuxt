@@ -77,24 +77,33 @@ const themes: Themes = {
 
 export const useThemeStore = defineStore("useThemeStore", () => {
 	const entries = Object.entries(themes);
+
+	// Retrieve the theme information from the cookie or set a default theme
 	const themeFromCookie = useCookie<ThemeFromCookie>("theme", {
 		default: () => ({ name: "darker", hasToReloadOnInit: false }),
 		sameSite: "lax",
 	});
 
+	// Initialize a reference to the current theme based on the cookie or default to 'darker'
 	const currentTheme = ref<Theme>(entries.find(entry => entry[0] === themeFromCookie.value.name)?.[1] ?? themes.darker);
 
+	// Check if the theme needs to be reloaded on initialization
 	if (themeFromCookie.value.hasToReloadOnInit) {
 		setNewTheme();
 	}
 	else {
+		// If not, mark the theme for reload on the next initialization
 		themeFromCookie.value = { name: "darker", hasToReloadOnInit: true };
 	}
 
+	// Function to set a new random theme excluding the current one
 	function setNewTheme() {
 		const themesWithoutCurrent = entries.filter(entry => entry[0] !== themeFromCookie.value.name);
+
+		// Choose a random theme from the filtered list
 		const newTheme = themesWithoutCurrent[useRandomInt(0, themesWithoutCurrent.length)];
 
+		// Update the current theme and mark it for reload on the next initialization
 		currentTheme.value = newTheme[1];
 		themeFromCookie.value = { name: newTheme[0] as AvailableTheme, hasToReloadOnInit: true };
 	}
