@@ -1,0 +1,42 @@
+{
+	"id": "social_medias",
+	"label": "Réseaux sociaux",
+	"repeatable": false,
+	"json": {
+		"Main": {
+			"group": {
+				"type": "Group",
+				"config": {
+					"fields": {
+						"title": {
+							"type": "Text",
+							"config": {
+								"label": "Titre",
+								"placeholder": "ex: LinkedIn"
+							}
+						},
+						"link": {
+							"type": "Link",
+							"config": {
+								"allowTargetBlank": true,
+								"label": "Lien",
+								"placeholder": "https://linkedin.com",
+								"select": null
+							}
+						},
+						"icon": {
+							"type": "Text",
+							"config": {
+								"label": "Nom de l'icône",
+								"placeholder": "linkedin"
+							}
+						}
+					},
+					"label": "Groupe"
+				}
+			}
+		}
+	},
+	"status": false,
+	"format": "custom"
+}

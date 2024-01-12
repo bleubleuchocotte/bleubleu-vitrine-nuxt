@@ -1,0 +1,34 @@
+{
+	"id": "social_media",
+	"label": "Réseau social",
+	"repeatable": true,
+	"json": {
+		"Main": {
+			"name": {
+				"type": "Text",
+				"config": {
+					"label": "Nom",
+					"placeholder": "LinkedIn"
+				}
+			},
+			"uid": {
+				"type": "UID",
+				"config": {
+					"label": "Slug",
+					"placeholder": "linkedin"
+				}
+			},
+			"link": {
+				"type": "Link",
+				"config": {
+					"allowTargetBlank": true,
+					"label": "Lien",
+					"placeholder": "https://linkedin.com",
+					"select": null
+				}
+			}
+		}
+	},
+	"status": true,
+	"format": "custom"
+}
