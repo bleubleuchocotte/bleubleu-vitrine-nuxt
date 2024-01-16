@@ -22,7 +22,6 @@ defineProps<ComponentProps>();
 
 	@include font("misc/navigation");
 	text-align: center;
-	letter-spacing: -2px;
 	white-space: nowrap;
 
 	@include border(5);
@@ -45,8 +44,7 @@ defineProps<ComponentProps>();
 	&__link {
 		display: block;
 		width: 100%;
-		@include prop("padding-inline", 2);
-		@include prop("padding-block", 1);
+		@include prop("padding-block");
 	}
 }
 </style>
