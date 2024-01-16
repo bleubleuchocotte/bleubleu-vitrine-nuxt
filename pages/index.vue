@@ -10,7 +10,9 @@ const { currentTheme } = storeToRefs(themeStore);
 </script>
 
 <template>
-	<main class="starter">
+	<main class="main-home">
+		<SectionsTheHero />
+
 		<h1>{{ currentTheme }}</h1>
 		<h2>Heading 2</h2>
 		<h3>Heading 3</h3>
@@ -25,11 +27,8 @@ const { currentTheme } = storeToRefs(themeStore);
 </template>
 
 <style scoped lang="scss">
-.starter {
-	height: 100vh;
-	width: 100vw;
-
-	color: #ffffff;
-	background-color: #000000;
+.main-home {
+	color: var(--primary-color);
+	background-color: var(--secondary-color);
 }
 </style>
