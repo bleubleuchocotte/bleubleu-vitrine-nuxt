@@ -1,0 +1,121 @@
+{
+	"id": "project",
+	"label": "Project",
+	"repeatable": true,
+	"json": {
+		"Main": {
+			"title": {
+				"type": "StructuredText",
+				"config": {
+					"single": "heading1",
+					"label": "Titre"
+				}
+			},
+			"uid": {
+				"type": "UID",
+				"config": {
+					"label": "Slug"
+				}
+			},
+			"date": {
+				"type": "Date",
+				"config": {
+					"label": "Date"
+				}
+			},
+			"website_link": {
+				"type": "Link",
+				"config": {
+					"allowTargetBlank": true,
+					"label": "Lien du site",
+					"select": null
+				}
+			},
+			"go_to": {
+				"type": "StructuredText",
+				"config": {
+					"single": "heading6",
+					"label": "Go to",
+					"placeholder": "Website / Behance / Youtube ..."
+				}
+			},
+			"description": {
+				"type": "StructuredText",
+				"config": {
+					"multi": "paragraph,strong,em,list-item",
+					"label": "Description"
+				}
+			},
+			"medias": {
+				"type": "Group",
+				"config": {
+					"fields": {
+						"media": {
+							"type": "Image",
+							"config": {
+								"constraint": {},
+								"thumbnails": [],
+								"label": "Media"
+							}
+						},
+						"video": {
+							"type": "Link",
+							"config": {
+								"select": "media",
+								"label": "Video"
+							}
+						}
+					},
+					"label": "Medias"
+				}
+			}
+		},
+		"project images": {
+			"project_images": {
+				"type": "Group",
+				"config": {
+					"fields": {
+						"image": {
+							"type": "Image",
+							"config": {
+								"constraint": {
+									"width": null,
+									"height": null
+								},
+								"thumbnails": [],
+								"label": "image"
+							}
+						}
+					},
+					"label": "project_images"
+				}
+			}
+		},
+		"project videos": {
+			"videos": {
+				"type": "Group",
+				"config": {
+					"fields": {
+						"webm": {
+							"type": "Link",
+							"config": {
+								"label": "webm",
+								"select": null
+							}
+						},
+						"mp4": {
+							"type": "Link",
+							"config": {
+								"label": "mp4",
+								"select": null
+							}
+						}
+					},
+					"label": "videos"
+				}
+			}
+		}
+	},
+	"status": true,
+	"format": "custom"
+}

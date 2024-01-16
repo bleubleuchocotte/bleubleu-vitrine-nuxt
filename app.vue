@@ -1,6 +1,15 @@
 <script setup lang="ts">
 const request = useRequestURL();
 
+const themeStore = useThemeStore();
+const { currentTheme } = storeToRefs(themeStore);
+
+const cssVariables = [
+	`--primary-color: ${currentTheme.value.primary}`,
+	`--secondary-color: ${currentTheme.value.secondary}`,
+	`--filter-to-primary: ${currentTheme.value.filter}`,
+];
+
 // On place ici les propriétés non-réactives
 useServerSeoMeta({
 	ogImage: `${request.origin}/images/og-image.png`,
@@ -15,7 +24,7 @@ useServerSeoMeta({
 	twitterCard: "summary_large_image",
 
 	robots: "index, follow",
-	themeColor: "#FFFFFF",
+	themeColor: () => currentTheme.value.primary,
 	creator: "BleuBleu Chocotte",
 });
 
@@ -26,15 +35,20 @@ useHead({
 	link: [
 		{
 			rel: "icon",
-			type: "image/png",
-			href: `${request.origin}/favicon-32x32.ico`,
+			type: "image/svg+xml",
+			href: useDataUriFromSvg(useSvgFavicon(currentTheme.value.primary)), // TODO: Update svg size
 		},
 	],
+	style: [`:root{${cssVariables.join(";")}}`],
 });
 </script>
 
 <template>
+	<NuxtLoadingIndicator :throttle="0" />
 	<NuxtLayout>
+		<ClientOnly>
+			<UIBaseCursor :width="60" :height="60" />
+		</ClientOnly>
 		<NuxtPage />
 	</NuxtLayout>
 </template>
