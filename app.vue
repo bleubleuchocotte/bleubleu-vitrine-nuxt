@@ -46,6 +46,9 @@ useHead({
 <template>
 	<NuxtLoadingIndicator :throttle="0" />
 	<NuxtLayout>
+		<ClientOnly>
+			<UIBaseCursor :width="60" :height="60" />
+		</ClientOnly>
 		<NuxtPage />
 	</NuxtLayout>
 </template>
