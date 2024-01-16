@@ -22,3 +22,9 @@ export type NavigationLink = {
 	linkName: string
 	routerOptions: NuxtLinkProps
 };
+
+export type Socials = "Behance" | "Instagram" | "Malt" | "LinkedIn";
+export type SocialsProps = {
+	to: string
+	social: Socials
+};
