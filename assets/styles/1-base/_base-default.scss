@@ -1,3 +1,13 @@
+@font-face {
+	font-family: "Neutral Face";
+	src: url("@/assets/fonts/Neutral_Face.otf");
+	font-display: swap;
+}
+
+body {
+	font-family: "Neutral Face", Arial, Helvetica, sans-serif;
+}
+
 h1,
 .h1 {
 	@include font("title/h1");
