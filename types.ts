@@ -1,3 +1,5 @@
+import type { NuxtLinkProps } from "nuxt/dist/app/components/nuxt-link";
+
 export type Theme = {
 	readonly name: string
 	readonly primary: string
@@ -13,4 +15,10 @@ export type Themes = Readonly<Record<AvailableTheme, Theme>>;
 export type ThemeFromCookie = {
 	name: AvailableTheme
 	hasToReloadOnInit: boolean
+};
+
+export type NavigationLink = {
+	flexAmount: number
+	linkName: string
+	routerOptions: NuxtLinkProps
 };
