@@ -1,3 +1,5 @@
+$low-accuracy: "(pointer: coarse)";
+
 $mobile-xs: "screen and (max-width: 390px)"; // Pour tous les petits écrans
 $mobile: "screen and (min-width: 390px) and (max-width: 769px)"; // Pour tous les écrans qui ne sont pas des tablettes / ordinateurs
 $tablet: "screen and (min-width: 769px) and (max-width: 1024px)"; // Pour tous les écrans qui sont des tablettes
