@@ -6,7 +6,6 @@ export default defineNuxtConfig({
 	 "@vueuse/nuxt",
 	 "nuxt-simple-sitemap",
 	 "nuxt-simple-robots",
-	 "@nuxt/test-utils/module",
 	 "@nuxtjs/prismic",
 	 "@pinia/nuxt",
 	],
