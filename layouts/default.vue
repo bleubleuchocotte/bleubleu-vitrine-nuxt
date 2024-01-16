@@ -1,7 +1,7 @@
 <template>
-	<div>
+	<UIBaseLenis>
 		<TheHeader />
 		<slot />
 		<TheFooter />
-	</div>
+	</UIBaseLenis>
 </template>
