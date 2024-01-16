@@ -62,6 +62,17 @@
 				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
 			}
 		}
+	} @else if ($font == "misc/navigation") {
+		// mobile-xs, mobile, tablet, desktop
+		$base-fs: 42, 42, 42, 42;
+		line-height: normal;
+		font-weight: 400;
+
+		@each $index, $size in $sizes {
+			@media #{map.get($size, "media")} {
+				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+			}
+		}
 	}
 }
 
@@ -70,7 +81,7 @@
 	$property,
 	$coef: 1,
 	$important: null,
-	$base-length: (16, 32, 64, 128) /* mobile-xs, mobile, tablet, desktop */
+	$base-length: (4, 4, 4, 4) /* mobile-xs, mobile, tablet, desktop */
 ) {
 	@each $index, $size in $sizes {
 		@media #{map.get($size, "media")} {
@@ -96,10 +107,10 @@
 	$coef: 1,
 	$side: "all",
 	$base-radius: (
-		16,
-		32,
-		64,
-		128,
+		10,
+		10,
+		12,
+		12,
 	)
 	/* mobile-xs, mobile, tablet, desktop */
 ) {
