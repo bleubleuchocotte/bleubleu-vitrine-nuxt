@@ -27,7 +27,7 @@ export default defineNuxtConfig({
 	},
 
 	prismic: {
-	 endpoint: "bleubleu-vitrine",
+	 endpoint: process.env.PRISMIC_ENDPOINT,
 	 toolbar: false,
 	 preview: false,
 	},
