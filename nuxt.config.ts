@@ -3,11 +3,11 @@ export default defineNuxtConfig({
 	devtools: { enabled: true },
 
 	modules: [
-	 "@vueuse/nuxt",
-	 "nuxt-simple-sitemap",
-	 "nuxt-simple-robots",
-	 "@nuxtjs/prismic",
-	 "@pinia/nuxt",
+		"@vueuse/nuxt",
+		"nuxt-simple-sitemap",
+		"nuxt-simple-robots",
+		"@nuxtjs/prismic",
+		"@pinia/nuxt",
 	],
 
 	css: ["@/assets/styles/reset.css", "@/assets/styles/1-base/_base-default.scss"],
@@ -27,8 +27,8 @@ export default defineNuxtConfig({
 	},
 
 	prismic: {
-	 endpoint: process.env.PRISMIC_ENDPOINT,
-	 toolbar: false,
-	 preview: false,
+		endpoint: process.env.PRISMIC_ENDPOINT,
+		toolbar: false,
+		preview: false,
 	},
 });
