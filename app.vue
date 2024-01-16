@@ -4,6 +4,12 @@ const request = useRequestURL();
 const themeStore = useThemeStore();
 const { currentTheme } = storeToRefs(themeStore);
 
+const cssVariables = [
+	`--primary-color: ${currentTheme.value.primary}`,
+	`--secondary-color: ${currentTheme.value.secondary}`,
+	`--filter-to-primary: ${currentTheme.value.filter}`,
+];
+
 // On place ici les propriétés non-réactives
 useServerSeoMeta({
 	ogImage: `${request.origin}/images/og-image.png`,
@@ -33,6 +39,7 @@ useHead({
 			href: useDataUriFromSvg(useSvgFavicon(currentTheme.value.primary)), // TODO: Update svg size
 		},
 	],
+	style: [`:root{${cssVariables.join(";")}}`],
 });
 </script>
 
