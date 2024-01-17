@@ -35,7 +35,7 @@ const icons = [
 .section-studio {
 	display: flex;
 
-	@include prop("padding-inline", 30);
+	@include prop("margin-inline", 30);
 	border-bottom: 1px solid;
 
 	min-height: 80vh;

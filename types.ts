@@ -28,3 +28,13 @@ export type SocialsProps = {
 	to: string
 	social: Socials
 };
+
+export type BaseLenisSectionProps = {
+	element: BaseLenisSectionElementType
+	externalElement: BaseLenisSectionElementType
+};
+export type BaseLenisSectionElementType = {
+	isInViewport: boolean
+	ratio: number
+	resetOnLeave: boolean
+};
