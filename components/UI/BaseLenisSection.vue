@@ -15,7 +15,9 @@ let externalStartScroll: null | number = null;
 
 watch(scroll, () => {
 	if (props.element.isInViewport) {
-		if (elementStartScroll === null) { elementStartScroll = scroll.value; }
+		if (elementStartScroll === null) {
+			elementStartScroll = scroll.value;
+		}
 
 		elementCurrentScroll.value = (scroll.value - elementStartScroll) * props.element.ratio;
 	}
@@ -27,7 +29,9 @@ watch(scroll, () => {
 	}
 
 	if (props.externalElement.isInViewport) {
-		if (externalStartScroll === null) { externalStartScroll = scroll.value; }
+		if (externalStartScroll === null) {
+			externalStartScroll = scroll.value;
+		}
 
 		externalElementCurrentScroll.value = (scroll.value - externalStartScroll) * props.externalElement.ratio;
 	}
