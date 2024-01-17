@@ -1,10 +1,17 @@
+<script setup lang="ts">
+onMounted(() => {
+	const lenisStore = useLenisStore();
+	const { initLenis } = lenisStore;
+
+	initLenis();
+});
+</script>
+
 <template>
 	<div class="default-layout">
-		<UIBaseLenis>
-			<TheHeader />
-			<slot />
-			<TheFooter />
-		</UIBaseLenis>
+		<TheHeader />
+		<slot />
+		<TheFooter />
 	</div>
 </template>
 
