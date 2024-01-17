@@ -340,6 +340,28 @@ interface KeywordAgencyDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#number
    */
   speed: prismic.NumberField;
+
+  /**
+   * Custom css field in *Keywords-Agency*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: keyword-agency.custom_css
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  custom_css: prismic.KeyTextField;
+
+  /**
+   * Keyword field in *Keywords-Agency*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: keyword-agency.keyword
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  keyword: prismic.KeyTextField;
 }
 
 /**
