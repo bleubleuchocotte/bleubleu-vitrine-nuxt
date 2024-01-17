@@ -73,6 +73,17 @@
 				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
 			}
 		}
+	} @else if ($font == "misc/copyright") {
+		// mobile-xs, mobile, tablet, desktop
+		$base-fs: 15, 15, 15, 15;
+		line-height: normal;
+		font-weight: 400;
+
+		@each $index, $size in $sizes {
+			@media #{map.get($size, "media")} {
+				font-size: pxToVw(list.nth($base-fs, $index), map.get($size, "target"));
+			}
+		}
 	}
 }
 
