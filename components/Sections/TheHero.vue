@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { SocialsProps } from "~/types";
+import lottie from "@/assets/lotties/lottie-header-desktop.json";
 
 const socials: SocialsProps[] = [
 	{
@@ -23,7 +24,7 @@ const socials: SocialsProps[] = [
 
 <template>
 	<section class="section-hero">
-		<h1>MULTI DISCIPLINARY DIGITAL COLLECTIVE</h1>
+		<UIBaseLottie :data-as-json="lottie" />
 
 		<div class="section-hero__bottom">
 			<div class="section-hero__bottom-icons">
@@ -43,9 +44,11 @@ const socials: SocialsProps[] = [
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	@include gap(5);
 
 	min-height: calc(100vh - 1px);
 
+	// padding-top: 100px;
 	@include prop("padding-bottom", 8);
 	@include prop("padding-inline", 30);
 
@@ -56,6 +59,7 @@ const socials: SocialsProps[] = [
 
 		display: flex;
 		justify-content: space-between;
+		align-items: center;
 
 		&-icons {
 			display: flex;
