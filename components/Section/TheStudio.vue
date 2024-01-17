@@ -15,9 +15,11 @@ const icons = [
 			<div class="section-studio__left-content">
 				<SectionStudioHeading />
 
-				<p class="section-studio__left-content-paragraph">
-					Bleubleu is a closed collective of half a dozen freelancers with strong ethical goals, super dedication to interesting projects and passionate people.
-				</p>
+				<UIBaseBlurryText class="section-studio__left-content-paragraph">
+					<p>
+						Bleubleu is a closed collective of half a dozen freelancers with strong ethical goals, super dedication to interesting projects and passionate people.
+					</p>
+				</UIBaseBlurryText>
 			</div>
 			<div class="section-studio__left-icons">
 				<component :is="icon" v-for="(icon) in icons" :key="JSON.stringify(icon)" />
@@ -33,7 +35,7 @@ const icons = [
 .section-studio {
 	display: flex;
 
-	@include prop("padding-inline", 30);
+	@include prop("margin-inline", 30);
 	border-bottom: 1px solid;
 
 	min-height: 80vh;

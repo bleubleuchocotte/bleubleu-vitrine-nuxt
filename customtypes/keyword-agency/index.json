@@ -1,41 +1,55 @@
 {
-	"id": "keyword-agency",
-	"label": "Keywords-Agency",
-	"repeatable": true,
-	"json": {
-		"Main": {
-			"text": {
-				"type": "StructuredText",
-				"config": {
-					"single": "paragraph",
-					"label": "Text"
-				}
-			},
-			"direction": {
-				"type": "Select",
-				"config": {
-					"options": ["ltr", "rtl"],
-					"default_value": "ltr",
-					"label": "Direction",
-					"placeholder": "Choose the direction of scrolling"
-				}
-			},
-			"css_style": {
-				"type": "StructuredText",
-				"config": {
-					"multi": "preformatted",
-					"label": "CSS style",
-					"placeholder": "Put all css there. Ex: top: 0; z-index: 3;"
-				}
-			},
-			"speed": {
-				"type": "Number",
-				"config": {
-					"label": "Speed in percentage (100% make the div move 100vw in a 100vh scroll)"
-				}
-			}
-		}
-	},
-	"status": true,
-	"format": "custom"
+  "id": "keyword-agency",
+  "label": "Keywords-Agency",
+  "repeatable": true,
+  "status": true,
+  "format": "custom",
+  "json": {
+    "Main": {
+      "text": {
+        "type": "StructuredText",
+        "config": {
+          "single": "paragraph",
+          "label": "Text"
+        }
+      },
+      "direction": {
+        "type": "Select",
+        "config": {
+          "options": ["ltr", "rtl"],
+          "default_value": "ltr",
+          "label": "Direction",
+          "placeholder": "Choose the direction of scrolling"
+        }
+      },
+      "css_style": {
+        "type": "StructuredText",
+        "config": {
+          "multi": "preformatted",
+          "label": "CSS style",
+          "placeholder": "Put all css there. Ex: top: 0; z-index: 3;"
+        }
+      },
+      "speed": {
+        "type": "Number",
+        "config": {
+          "label": "Speed in percentage (100% make the div move 100vw in a 100vh scroll)"
+        }
+      },
+      "custom_css": {
+        "type": "Text",
+        "config": {
+          "label": "Custom css",
+          "placeholder": ""
+        }
+      },
+      "keyword": {
+        "type": "Text",
+        "config": {
+          "label": "Keyword",
+          "placeholder": ""
+        }
+      }
+    }
+  }
 }
