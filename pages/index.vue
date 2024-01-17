@@ -11,7 +11,8 @@ const { currentTheme } = storeToRefs(themeStore);
 
 <template>
 	<main>
-		<SectionsTheHero />
+		<SectionTheHero />
+		<SectionTheStudio />
 
 		<h1>{{ currentTheme }}</h1>
 		<h2>Heading 2</h2>
