@@ -37,7 +37,7 @@ const links: NavigationLink[] = [
 <template>
 	<nav class="navigation">
 		<ul class="navigation__list">
-			<UINavigationBaseItem v-for="(link) in links" :key="link.linkName" :item="link" />
+			<UINavigationItem v-for="(link) in links" :key="link.linkName" :item="link" />
 		</ul>
 	</nav>
 </template>
