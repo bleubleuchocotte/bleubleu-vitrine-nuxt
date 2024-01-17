@@ -13,7 +13,7 @@ const { currentTheme } = storeToRefs(themeStore);
 	<main>
 		<SectionTheHero />
 		<SectionTheStudio />
-		<SectionTheSkills />
+		<SectionTheKeywords />
 
 		<h1>{{ currentTheme }}</h1>
 		<h2>Heading 2</h2>
