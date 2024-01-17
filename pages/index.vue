@@ -10,7 +10,7 @@ const { currentTheme } = storeToRefs(themeStore);
 </script>
 
 <template>
-	<main class="main-home">
+	<main>
 		<SectionsTheHero />
 
 		<h1>{{ currentTheme }}</h1>
@@ -25,10 +25,3 @@ const { currentTheme } = storeToRefs(themeStore);
 		</UIBaseLink>
 	</main>
 </template>
-
-<style scoped lang="scss">
-.main-home {
-	color: var(--primary-color);
-	background-color: var(--secondary-color);
-}
-</style>
