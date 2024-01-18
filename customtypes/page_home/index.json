@@ -1,0 +1,40 @@
+{
+  "id": "page_home",
+  "label": "Page | Home",
+  "format": "custom",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Keywords": {
+      "section_keywords": {
+        "type": "Group",
+        "config": {
+          "label": "Section | Keywords",
+          "fields": {
+            "name": {
+              "type": "Text",
+              "config": {
+                "label": "Name",
+                "placeholder": ""
+              }
+            },
+            "speed": {
+              "type": "Number",
+              "config": {
+                "label": "Speed",
+                "placeholder": "For every full screen height scrolled, the element will shift horizontally by X% of viewport width "
+              }
+            },
+            "custom_css": {
+              "type": "Text",
+              "config": {
+                "label": "Custom CSS",
+                "placeholder": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

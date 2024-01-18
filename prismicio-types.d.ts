@@ -5,670 +5,75 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Item in *Footer → Socials*
+ * Item in *Page | Home → Section | Keywords*
  */
-export interface FooterDocumentDataSocialsItem {
+export interface PageHomeDocumentDataSectionKeywordsItem {
   /**
-   * Media field in *Footer → Socials*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.socials[].media
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  media: prismic.ContentRelationshipField<"social_media">;
-}
-
-/**
- * Content for Footer documents
- */
-interface FooterDocumentData {
-  /**
-   * Image field in *Footer*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<"main2x">;
-
-  /**
-   * Socials field in *Footer*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: footer.socials[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  socials: prismic.GroupField<Simplify<FooterDocumentDataSocialsItem>>;
-
-  /**
-   * Texte copyright field in *Footer*
+   * Name field in *Page | Home → Section | Keywords*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: footer.copyright
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  copyright: prismic.KeyTextField;
-}
-
-/**
- * Footer document from Prismic
- *
- * - **API ID**: `footer`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type FooterDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<FooterDocumentData>,
-    "footer",
-    Lang
-  >;
-
-/**
- * Item in *Home page → Réseaux sociaux*
- */
-export interface HomePageDocumentDataSocialsItem {
-  /**
-   * Media field in *Home page → Réseaux sociaux*
-   *
-   * - **Field Type**: Content Relationship
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.socials[].media
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  media: prismic.ContentRelationshipField<"social_media">;
-}
-
-/**
- * Item in *Home page → Membres de l'équipe*
- */
-export interface HomePageDocumentDataTeamMembersItem {
-  /**
-   * image_bitmap field in *Home page → Membres de l'équipe*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.team_members[].image_bitmap
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image_bitmap: prismic.ImageField<never>;
-
-  /**
-   * Prénom et nom field in *Home page → Membres de l'équipe*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.team_members[].name
+   * - **API ID Path**: page_home.section_keywords[].name
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   name: prismic.KeyTextField;
 
   /**
-   * Lien field in *Home page → Membres de l'équipe*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: https://linkedin.com/user
-   * - **API ID Path**: home_page.team_members[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-
-  /**
-   * Afficher sur le site field in *Home page → Membres de l'équipe*
-   *
-   * - **Field Type**: Boolean
-   * - **Placeholder**: *None*
-   * - **Default Value**: false
-   * - **API ID Path**: home_page.team_members[].display
-   * - **Documentation**: https://prismic.io/docs/field#boolean
-   */
-  display: prismic.BooleanField;
-}
-
-/**
- * Content for Home page documents
- */
-interface HomePageDocumentData {
-  /**
-   * Titre field in *Home page*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * Description field in *Home page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Description SEO
-   * - **API ID Path**: home_page.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  description: prismic.KeyTextField /**
-   * Réseaux sociaux field in *Home page*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.socials[]
-   * - **Tab**: Header
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */;
-  socials: prismic.GroupField<Simplify<HomePageDocumentDataSocialsItem>> /**
-   * Titre field in *Home page*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.projects_title
-   * - **Tab**: Section projets
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */;
-  projects_title: prismic.TitleField;
-
-  /**
-   * Texte du lien field in *Home page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Lien vers la page projets
-   * - **API ID Path**: home_page.projects_link_name
-   * - **Tab**: Section projets
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  projects_link_name: prismic.KeyTextField;
-
-  /**
-   * Description field in *Home page*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.projects_description
-   * - **Tab**: Section projets
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  projects_description: prismic.RichTextField;
-
-  /**
-   * Image field in *Home page*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.projects_image
-   * - **Tab**: Section projets
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  projects_image: prismic.ImageField<"@2x"> /**
-   * Titre field in *Home page*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.team_title
-   * - **Tab**: Section équipe
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */;
-  team_title: prismic.TitleField;
-
-  /**
-   * Texte du lien field in *Home page*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: Our team
-   * - **API ID Path**: home_page.team_link_name
-   * - **Tab**: Section équipe
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  team_link_name: prismic.KeyTextField;
-
-  /**
-   * Lien field in *Home page*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.team_link
-   * - **Tab**: Section équipe
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  team_link: prismic.LinkField;
-
-  /**
-   * Description field in *Home page*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.team_description
-   * - **Tab**: Section équipe
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  team_description: prismic.RichTextField;
-
-  /**
-   * Image field in *Home page*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.team_image
-   * - **Tab**: Section équipe
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  team_image: prismic.ImageField<"@2x"> /**
-   * Membres de l'équipe field in *Home page*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: home_page.team_members[]
-   * - **Tab**: Présentation équipe
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */;
-  team_members: prismic.GroupField<
-    Simplify<HomePageDocumentDataTeamMembersItem>
-  >;
-}
-
-/**
- * Home page document from Prismic
- *
- * - **API ID**: `home_page`
- * - **Repeatable**: `false`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type HomePageDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<HomePageDocumentData>,
-    "home_page",
-    Lang
-  >;
-
-/**
- * Content for Keywords-Agency documents
- */
-interface KeywordAgencyDocumentData {
-  /**
-   * Text field in *Keywords-Agency*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: keyword-agency.text
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  text: prismic.RichTextField;
-
-  /**
-   * Direction field in *Keywords-Agency*
-   *
-   * - **Field Type**: Select
-   * - **Placeholder**: Choose the direction of scrolling
-   * - **Default Value**: ltr
-   * - **API ID Path**: keyword-agency.direction
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#select
-   */
-  direction: prismic.SelectField<"ltr" | "rtl", "filled">;
-
-  /**
-   * CSS style field in *Keywords-Agency*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Put all css there. Ex: top: 0; z-index: 3;
-   * - **API ID Path**: keyword-agency.css_style
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  css_style: prismic.RichTextField;
-
-  /**
-   * Speed in percentage (100% make the div move 100vw in a 100vh scroll) field in *Keywords-Agency*
+   * Speed field in *Page | Home → Section | Keywords*
    *
    * - **Field Type**: Number
-   * - **Placeholder**: *None*
-   * - **API ID Path**: keyword-agency.speed
-   * - **Tab**: Main
+   * - **Placeholder**: For every full screen height scrolled, the element will shift horizontally by X% of viewport width
+   * - **API ID Path**: page_home.section_keywords[].speed
    * - **Documentation**: https://prismic.io/docs/field#number
    */
   speed: prismic.NumberField;
 
   /**
-   * Custom css field in *Keywords-Agency*
+   * Custom CSS field in *Page | Home → Section | Keywords*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: keyword-agency.custom_css
-   * - **Tab**: Main
+   * - **API ID Path**: page_home.section_keywords[].custom_css
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   custom_css: prismic.KeyTextField;
-
-  /**
-   * Keyword field in *Keywords-Agency*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: keyword-agency.keyword
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  keyword: prismic.KeyTextField;
 }
 
 /**
- * Keywords-Agency document from Prismic
- *
- * - **API ID**: `keyword-agency`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
+ * Content for Page | Home documents
  */
-export type KeywordAgencyDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithoutUID<
-    Simplify<KeywordAgencyDocumentData>,
-    "keyword-agency",
-    Lang
+interface PageHomeDocumentData {
+  /**
+   * Section | Keywords field in *Page | Home*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_home.section_keywords[]
+   * - **Tab**: Keywords
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  section_keywords: prismic.GroupField<
+    Simplify<PageHomeDocumentDataSectionKeywordsItem>
   >;
-
-/**
- * Item in *Project → Medias*
- */
-export interface ProjectDocumentDataMediasItem {
-  /**
-   * Media field in *Project → Medias*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.medias[].media
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  media: prismic.ImageField<never>;
-
-  /**
-   * Video field in *Project → Medias*
-   *
-   * - **Field Type**: Link to Media
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.medias[].video
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  video: prismic.LinkToMediaField;
 }
 
 /**
- * Item in *Project → project_images*
- */
-export interface ProjectDocumentDataProjectImagesItem {
-  /**
-   * image field in *Project → project_images*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.project_images[].image
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>;
-}
-
-/**
- * Item in *Project → videos*
- */
-export interface ProjectDocumentDataVideosItem {
-  /**
-   * webm field in *Project → videos*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.videos[].webm
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  webm: prismic.LinkField;
-
-  /**
-   * mp4 field in *Project → videos*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.videos[].mp4
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  mp4: prismic.LinkField;
-}
-
-/**
- * Content for Project documents
- */
-interface ProjectDocumentData {
-  /**
-   * Titre field in *Project*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.TitleField;
-
-  /**
-   * Date field in *Project*
-   *
-   * - **Field Type**: Date
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#date
-   */
-  date: prismic.DateField;
-
-  /**
-   * Lien du site field in *Project*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.website_link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  website_link: prismic.LinkField;
-
-  /**
-   * Go to field in *Project*
-   *
-   * - **Field Type**: Title
-   * - **Placeholder**: Website / Behance / Youtube ...
-   * - **API ID Path**: project.go_to
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  go_to: prismic.TitleField;
-
-  /**
-   * Description field in *Project*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.description
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Medias field in *Project*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.medias[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  medias: prismic.GroupField<Simplify<ProjectDocumentDataMediasItem>> /**
-   * project_images field in *Project*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.project_images[]
-   * - **Tab**: project images
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */;
-  project_images: prismic.GroupField<
-    Simplify<ProjectDocumentDataProjectImagesItem>
-  > /**
-   * videos field in *Project*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: project.videos[]
-   * - **Tab**: project videos
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */;
-  videos: prismic.GroupField<Simplify<ProjectDocumentDataVideosItem>>;
-}
-
-/**
- * Project document from Prismic
+ * Page | Home document from Prismic
  *
- * - **API ID**: `project`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type ProjectDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<ProjectDocumentData>,
-    "project",
-    Lang
-  >;
-
-/**
- * Content for Réseau social documents
- */
-interface SocialMediaDocumentData {
-  /**
-   * Nom field in *Réseau social*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: LinkedIn
-   * - **API ID Path**: social_media.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  name: prismic.KeyTextField;
-
-  /**
-   * Lien field in *Réseau social*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: https://linkedin.com
-   * - **API ID Path**: social_media.link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-}
-
-/**
- * Réseau social document from Prismic
- *
- * - **API ID**: `social_media`
- * - **Repeatable**: `true`
- * - **Documentation**: https://prismic.io/docs/custom-types
- *
- * @typeParam Lang - Language API ID of the document.
- */
-export type SocialMediaDocument<Lang extends string = string> =
-  prismic.PrismicDocumentWithUID<
-    Simplify<SocialMediaDocumentData>,
-    "social_media",
-    Lang
-  >;
-
-/**
- * Item in *Réseaux sociaux → Groupe*
- */
-export interface SocialMediasDocumentDataGroupItem {
-  /**
-   * Titre field in *Réseaux sociaux → Groupe*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: ex: LinkedIn
-   * - **API ID Path**: social_medias.group[].title
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  title: prismic.KeyTextField;
-
-  /**
-   * Lien field in *Réseaux sociaux → Groupe*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: https://linkedin.com
-   * - **API ID Path**: social_medias.group[].link
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  link: prismic.LinkField;
-
-  /**
-   * Nom de l'icône field in *Réseaux sociaux → Groupe*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: linkedin
-   * - **API ID Path**: social_medias.group[].icon
-   * - **Documentation**: https://prismic.io/docs/field#key-text
-   */
-  icon: prismic.KeyTextField;
-}
-
-/**
- * Content for Réseaux sociaux documents
- */
-interface SocialMediasDocumentData {
-  /**
-   * Groupe field in *Réseaux sociaux*
-   *
-   * - **Field Type**: Group
-   * - **Placeholder**: *None*
-   * - **API ID Path**: social_medias.group[]
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#group
-   */
-  group: prismic.GroupField<Simplify<SocialMediasDocumentDataGroupItem>>;
-}
-
-/**
- * Réseaux sociaux document from Prismic
- *
- * - **API ID**: `social_medias`
+ * - **API ID**: `page_home`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type SocialMediasDocument<Lang extends string = string> =
+export type PageHomeDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
-    Simplify<SocialMediasDocumentData>,
-    "social_medias",
+    Simplify<PageHomeDocumentData>,
+    "page_home",
     Lang
   >;
 
-export type AllDocumentTypes =
-  | FooterDocument
-  | HomePageDocument
-  | KeywordAgencyDocument
-  | ProjectDocument
-  | SocialMediaDocument
-  | SocialMediasDocument;
+export type AllDocumentTypes = PageHomeDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -680,25 +85,9 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
-      FooterDocument,
-      FooterDocumentData,
-      FooterDocumentDataSocialsItem,
-      HomePageDocument,
-      HomePageDocumentData,
-      HomePageDocumentDataSocialsItem,
-      HomePageDocumentDataTeamMembersItem,
-      KeywordAgencyDocument,
-      KeywordAgencyDocumentData,
-      ProjectDocument,
-      ProjectDocumentData,
-      ProjectDocumentDataMediasItem,
-      ProjectDocumentDataProjectImagesItem,
-      ProjectDocumentDataVideosItem,
-      SocialMediaDocument,
-      SocialMediaDocumentData,
-      SocialMediasDocument,
-      SocialMediasDocumentData,
-      SocialMediasDocumentDataGroupItem,
+      PageHomeDocument,
+      PageHomeDocumentData,
+      PageHomeDocumentDataSectionKeywordsItem,
       AllDocumentTypes,
     };
   }
