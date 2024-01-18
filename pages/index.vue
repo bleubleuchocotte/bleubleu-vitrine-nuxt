@@ -7,13 +7,16 @@ useSeoMeta({
 
 const themeStore = useThemeStore();
 const { currentTheme } = storeToRefs(themeStore);
+
+const { $api } = useNuxtApp();
+const page = await $api.pages.getHomePage();
 </script>
 
 <template>
 	<main>
 		<SectionTheHero />
 		<SectionTheStudio />
-		<SectionTheKeywords />
+		<SectionTheKeywords :keywords="page?.data.section_keywords ?? []" />
 
 		<h1>{{ currentTheme }}</h1>
 		<h2>Heading 2</h2>

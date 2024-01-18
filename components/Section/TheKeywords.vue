@@ -1,10 +1,14 @@
 <script setup lang="ts">
+import type { Content } from "@prismicio/client";
 import type { BaseLenisSectionProps } from "~/types";
 
-const { height } = useWindowSize();
+type ComponentProps = {
+	keywords: Content.PageHomeDocumentDataSectionKeywordsItem[]
+};
 
-const { $api } = useNuxtApp();
-const keywords = await $api.keywords.getAllKeywords();
+defineProps<ComponentProps>();
+
+const { height } = useWindowSize();
 
 const baseLenisSectionProps = reactive<BaseLenisSectionProps>({
 	element: {
@@ -25,8 +29,8 @@ const baseLenisSectionProps = reactive<BaseLenisSectionProps>({
 		<UIBaseIntersectionObserver @is-visible="(e) => baseLenisSectionProps.element.isInViewport = e">
 			<section class="section-keywords">
 				<template v-for="(keyword) in keywords" :key="keyword.text">
-					<p :style="keyword.css" class="section-keywords__item">
-						{{ keyword.text }}
+					<p :style="`--speed: ${keyword.speed};${keyword.custom_css}`" class="section-keywords__item">
+						{{ keyword.name }}
 					</p>
 				</template>
 			</section>
@@ -46,7 +50,7 @@ const baseLenisSectionProps = reactive<BaseLenisSectionProps>({
 	&__item {
 		@include font("misc/keywords");
 
-		--x: calc(var(--internal-progress) * var(--ratio, 1) * 1vw);
+		--x: calc(var(--internal-progress) * var(--speed, 1) * 1vw);
 
 		position: absolute;
 		border: 1px solid;
