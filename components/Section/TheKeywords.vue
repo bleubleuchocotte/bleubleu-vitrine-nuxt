@@ -44,8 +44,8 @@ const baseLenisSectionProps = reactive<BaseLenisSectionProps>({
 	min-height: 350px;
 
 	@include prop("margin-inline", 30);
-	@include border(0);
-	border-top: unset;
+	border-left: 1px solid;
+	border-right: 1px solid;
 
 	&__item {
 		@include font("misc/keywords");
