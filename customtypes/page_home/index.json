@@ -35,6 +35,24 @@
           }
         }
       }
+    },
+    "Projects": {
+      "section_projects": {
+        "type": "Group",
+        "config": {
+          "label": "Section | Projects",
+          "fields": {
+            "project": {
+              "type": "Link",
+              "config": {
+                "label": "Project",
+                "select": "document",
+                "customtypes": ["home_project"]
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

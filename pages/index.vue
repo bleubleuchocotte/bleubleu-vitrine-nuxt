@@ -1,32 +1,26 @@
 <script setup lang="ts">
-import { storeToRefs } from "pinia";
+import type { Content, ContentRelationshipField } from "@prismicio/client";
 
 useSeoMeta({
 	title: "Accueil",
 });
 
-const themeStore = useThemeStore();
-const { currentTheme } = storeToRefs(themeStore);
-
 const { $api } = useNuxtApp();
 const page = await $api.pages.getHomePage();
+
+const projects = page?.data.section_projects.map((el) => {
+	const projectFromPrismic = el.project as ContentRelationshipField<"home_project", string, Content.HomeProjectDocumentData, "filled" >;
+	return projectFromPrismic.data;
+}) ?? [];
+
+const projectsFiltered = projects.filter((el): el is Content.HomeProjectDocumentData => el !== undefined); // Permet de filter les potentiels "undefined"
 </script>
 
 <template>
 	<main>
 		<SectionTheHero />
 		<SectionTheStudio />
-		<SectionTheKeywords :keywords="page?.data.section_keywords ?? []" />
-
-		<h1>{{ currentTheme }}</h1>
-		<h2>Heading 2</h2>
-		<h3>Heading 3</h3>
-		<p>Un paragraphe: Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid assumenda odio possimus praesentium tempora cumque quis aliquam obcaecati doloremque placeat, et aperiam autem impedit veritatis voluptatibus. Illum laborum nesciunt eaque.</p>
-		<UIBaseLink href="/404">
-			Vers la 404
-		</UIBaseLink>
-		<UIBaseLink href="/legal-notice">
-			Vers les mentions légales
-		</UIBaseLink>
+		<SectionTheKeywords :keywords="page?.data.section_keywords" />
+		<SectionTheProjects :projects="projectsFiltered" />
 	</main>
 </template>
