@@ -5,6 +5,119 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
+ * Item in *Home | Project → Images*
+ */
+export interface HomeProjectDocumentDataImagesItem {
+  /**
+   * Image field in *Home | Project → Images*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_project.images[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>;
+}
+
+/**
+ * Content for Home | Project documents
+ */
+interface HomeProjectDocumentData {
+  /**
+   * Name field in *Home | Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_project.name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Date field in *Home | Project*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_project.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField;
+
+  /**
+   * Description field in *Home | Project*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_project.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Link field in *Home | Project*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_project.link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  link: prismic.LinkField;
+
+  /**
+   * Link | Name field in *Home | Project*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_project.link_name
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  link_name: prismic.KeyTextField;
+
+  /**
+   * Images field in *Home | Project*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_project.images[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */
+  images: prismic.GroupField<Simplify<HomeProjectDocumentDataImagesItem>>;
+
+  /**
+   * Vidéo field in *Home | Project*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: home_project.video
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video: prismic.LinkToMediaField;
+}
+
+/**
+ * Home | Project document from Prismic
+ *
+ * - **API ID**: `home_project`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type HomeProjectDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<
+    Simplify<HomeProjectDocumentData>,
+    "home_project",
+    Lang
+  >;
+
+/**
  * Item in *Page | Home → Section | Keywords*
  */
 export interface PageHomeDocumentDataSectionKeywordsItem {
@@ -40,6 +153,21 @@ export interface PageHomeDocumentDataSectionKeywordsItem {
 }
 
 /**
+ * Item in *Page | Home → Section | Projects*
+ */
+export interface PageHomeDocumentDataSectionProjectsItem {
+  /**
+   * Project field in *Page | Home → Section | Projects*
+   *
+   * - **Field Type**: Content Relationship
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_home.section_projects[].project
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  project: prismic.ContentRelationshipField<"home_project">;
+}
+
+/**
  * Content for Page | Home documents
  */
 interface PageHomeDocumentData {
@@ -54,6 +182,17 @@ interface PageHomeDocumentData {
    */
   section_keywords: prismic.GroupField<
     Simplify<PageHomeDocumentDataSectionKeywordsItem>
+  > /**
+   * Section | Projects field in *Page | Home*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: page_home.section_projects[]
+   * - **Tab**: Projects
+   * - **Documentation**: https://prismic.io/docs/field#group
+   */;
+  section_projects: prismic.GroupField<
+    Simplify<PageHomeDocumentDataSectionProjectsItem>
   >;
 }
 
@@ -73,7 +212,7 @@ export type PageHomeDocument<Lang extends string = string> =
     Lang
   >;
 
-export type AllDocumentTypes = PageHomeDocument;
+export type AllDocumentTypes = HomeProjectDocument | PageHomeDocument;
 
 declare module "@prismicio/client" {
   interface CreateClient {
@@ -85,9 +224,13 @@ declare module "@prismicio/client" {
 
   namespace Content {
     export type {
+      HomeProjectDocument,
+      HomeProjectDocumentData,
+      HomeProjectDocumentDataImagesItem,
       PageHomeDocument,
       PageHomeDocumentData,
       PageHomeDocumentDataSectionKeywordsItem,
+      PageHomeDocumentDataSectionProjectsItem,
       AllDocumentTypes,
     };
   }

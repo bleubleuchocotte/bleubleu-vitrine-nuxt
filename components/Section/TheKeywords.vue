@@ -3,7 +3,7 @@ import type { Content } from "@prismicio/client";
 import type { BaseLenisSectionProps } from "~/types";
 
 type ComponentProps = {
-	keywords: Content.PageHomeDocumentDataSectionKeywordsItem[]
+	keywords?: Content.PageHomeDocumentDataSectionKeywordsItem[]
 };
 
 defineProps<ComponentProps>();
@@ -41,11 +41,12 @@ const baseLenisSectionProps = reactive<BaseLenisSectionProps>({
 <style scoped lang="scss">
 .section-keywords {
 	position: relative;
+	overflow: hidden;
 	min-height: 350px;
 
 	@include prop("margin-inline", 30);
-	@include border(0);
-	border-top: unset;
+	border-left: 1px solid;
+	border-right: 1px solid;
 
 	&__item {
 		@include font("misc/keywords");
