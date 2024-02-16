@@ -19,7 +19,7 @@
 		"@pinia/nuxt": "^0.5.1",
 		"@studio-freight/lenis": "^1.0.33",
 		"pinia": "^2.1.7",
-		"sass": "^1.69.7",
+		"sass": "^1.71.0",
 		"vue3-lottie": "^3.2.0"
 	},
 	"devDependencies": {
